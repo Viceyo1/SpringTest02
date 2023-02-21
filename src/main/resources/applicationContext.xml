@@ -5,23 +5,16 @@
 
 <!--============================CI注入============================================================-->
 
-<bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl">
-    <property name="connectionNum" value="10"/>
-    <property name="databaseName" value="mysql"></property>
-</bean>
-    <bean id="bookService" class="com.itheima.service.impl.BookServiceImpl">
-        <property name="bookDao" ref="bookDao"></property>
+
+
+
+
+
+
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl"   ></bean>
+    <bean id="bookService" class="com.itheima.service.impl.BookServiceImpl" autowire="byName">
+
     </bean>
-
-
-
-
-
-
-<!--    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl" destroy-method="destroy" init-method="init" ></bean>-->
-<!--    <bean id="bookService" class="com.itheima.service.impl.BookServiceImpl">-->
-<!--        <property name="bookDao" ref="bookDao"></property>-->
-<!--    </bean>-->
 
 
 
@@ -56,6 +49,50 @@
 <!--============================实例化工厂============================================================-->
   <bean id="userDao" class="com.itheima.factory.UserFactory"></bean>
 
+
+
+
+
+
+
+    <bean id="customerDao" class="com.itheima.dao.impl.CustomerDaoImpl">
+        <property name="array" >
+            <array>
+                <value>100</value>
+                <value>200</value>
+                <value>300</value>
+            </array>
+        </property>
+        <property name="list" >
+            <list>
+                <value>it</value>
+                <value>is</value>
+                <value>dog</value>
+            </list>
+        </property>
+
+        <property name="set" >
+            <set>
+                <value>it</value>
+                <value>is</value>
+                <value>dog</value>
+            </set>
+        </property>
+
+        <property name="map" >
+            <map>
+                <entry key="country" value="America"></entry>
+                <entry key="province" value="America"></entry>
+            </map>
+        </property>
+
+        <property name="properties" >
+            <props>
+                <prop key="country">America</prop>
+            </props>
+        </property>
+
+    </bean>
 
 
 
