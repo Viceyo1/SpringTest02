@@ -5,14 +5,16 @@ import com.itheima.dao.impl.BookDaoImpl;
 import com.itheima.service.BookService;
 
 public class BookServiceImpl implements BookService {
-    BookDao bookDao;
-    @Override
-    public void save() {
-        bookDao.save();
-        System.out.println("this is bookService");
-    }
 
-    public void setBookDao(BookDaoImpl bookDao) {
-        this.bookDao = bookDao;
-    }
+
+    private BookDao bookDao;
+public void save() {
+    System.out.println("this is bookService");
+    bookDao.save();
+
+}
+public void setBookDao(BookDao bookDao){
+    this.bookDao = bookDao;
+}
+
 }

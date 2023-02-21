@@ -10,30 +10,14 @@ public class BookAplication {
     -------------------------DI注入---------------------------------------------------------------
      */
     public static void main(String[] args) {
-//        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-//        BookService serviceDao = (BookService) ctx.getBean("bookService");
-//        serviceDao.save();
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        BookService serviceDao = (BookService) ctx.getBean("bookService");
+        serviceDao.save();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-ApplicationContext cxt = new ClassPathXmlApplicationContext("applicationContext.xml");
-        BookService bookService =(BookService) cxt.getBean("bookService");
-        bookService.save();
 
 
     }
+
+
+
 }
