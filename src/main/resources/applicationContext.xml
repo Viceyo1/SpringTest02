@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+">
 
 <!--============================CI注入============================================================-->
 
 
+<context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"></context:property-placeholder>
 
 
 
 
-
-    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl"   ></bean>
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl"   >
+        <property name="hah" value="123"></property>
+    </bean>
     <bean id="bookService" class="com.itheima.service.impl.BookServiceImpl" autowire="byName">
 
     </bean>
@@ -47,59 +54,5 @@
 
 
 <!--============================实例化工厂============================================================-->
-  <bean id="userDao" class="com.itheima.factory.UserFactory"></bean>
-
-
-
-
-
-
-
-    <bean id="customerDao" class="com.itheima.dao.impl.CustomerDaoImpl">
-        <property name="array" >
-            <array>
-                <value>100</value>
-                <value>200</value>
-                <value>300</value>
-            </array>
-        </property>
-        <property name="list" >
-            <list>
-                <value>it</value>
-                <value>is</value>
-                <value>dog</value>
-            </list>
-        </property>
-
-        <property name="set" >
-            <set>
-                <value>it</value>
-                <value>is</value>
-                <value>dog</value>
-            </set>
-        </property>
-
-        <property name="map" >
-            <map>
-                <entry key="country" value="America"></entry>
-                <entry key="province" value="America"></entry>
-            </map>
-        </property>
-
-        <property name="properties" >
-            <props>
-                <prop key="country">America</prop>
-            </props>
-        </property>
-
-    </bean>
-
-
-
-
-
-
-
-
-
+  <bean id="userDao" class="com.itheima.factory.UserFactory" ></bean>
         </beans>
