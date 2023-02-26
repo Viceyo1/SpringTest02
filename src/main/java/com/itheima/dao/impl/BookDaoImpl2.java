@@ -1,9 +1,7 @@
 package com.itheima.dao.impl;
 
 import com.itheima.dao.BookDao;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -15,16 +13,13 @@ import javax.annotation.PreDestroy;
  */
 
 
-@Repository("bookDao")
+@Repository("bookDao2")
 @Scope("singleton")
-public class BookDaoImpl implements BookDao {
-
-    @Value("${name}")
-    private String name;
+public class BookDaoImpl2 implements BookDao {
 
 
     public void save() {
-        System.out.println("this is bookDao......." + name);
+        System.out.println("this is bookDao2......." );
     }
 
 
